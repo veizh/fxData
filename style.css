@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 40px;
+}
+.refresh{
+    padding: 10px 20px;
+    font-size: 25px;
+    background-color: whitesmoke;
+    cursor: pointer;
+    border-radius: 50px;
+    border: #3f3f3f 2px solid;
+    font-weight: 500;
+    transition: all 0.5s ease-in-out;
+}
+.pastille{
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    aspect-ratio: 1/1;
+    border: 2px solid rgb(20, 20, 20);
+    font-weight: 500;
+    color: rgb(20, 20, 20);
+    border-radius: 50%;
+}
+.green{
+    background-color: rgb(112, 255, 112);
+}
+.red{
+    background-color: rgb(255, 74, 74);
+}
+.displayResults{
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+gap: 5px;
+}
+.form,.result{
+    background-color: whitesmoke;
+    padding: 20px 10px;
+    width: 500px;
+    border-radius: 8px;
+    height: min-content;
+    border: 2px solid #999999;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.percent,.percent2{
+    padding: 5px 20px;
+    font-size: 20px;
+}
+h1{
+    font-weight: bold;
+}
+textarea{
+    border-radius: 8px;
+    border: 2px solid #3f3f3f;
+    height: 70px;
+    width: 100%;
+    padding: 5px 10px;
+}
+input{
+    border-radius: 8px;
+    padding: 5px 10px;
+    border: 2px solid #3f3f3f;
+    width: 100%;
+}
+input:active,input:focus-visible,textarea:focus-visible,textarea:active{
+    outline: none;
+}
+button{
+    border: 2px solid #3f3f3f;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: min-content;
+    text-wrap: nowrap;
+    font-size: 22px;
+    transition: all 0.4s ease-in-out;
+
+}
+button:hover,.refresh:hover{
+    background-color: #3f3f3f;
+    color: whitesmoke;
+    border: whitesmoke 2px solid;
+}
