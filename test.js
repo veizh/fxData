@@ -5,7 +5,7 @@ let nameNotation =document.querySelector('.playerNameNotation')
 let totalMatch = 0
 let totalWin = 0
 let historicArray = []
-let limit = 10
+let limit = 20
 document.querySelector('.refresh').addEventListener('click',()=>{
     location.reload();
 })
@@ -14,7 +14,7 @@ function splitFunction(text,limit){
     console.log("split by line " , tmp);
     
     tmp.forEach((element,i) => {
-        if(i>9) return
+        if(i>19) return
         const t = element.split('\t')
         let x = {}
         t.forEach((e,i)=>{
