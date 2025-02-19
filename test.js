@@ -91,8 +91,8 @@ function displayResult(array){
         }
         section.appendChild(t)
     })
-    percent1.innerHTML = calculPercentage(historicArray,5) + " => taux de victoire sur les 5 derniers matchs"
-    percent2.innerHTML = calculPercentage(historicArray,10) +" => taux de victoire sur les 10 derniers matchs"
+    percent1.innerHTML = calculPercentage(historicArray,5) 
+    percent2.innerHTML = calculPercentage(historicArray,10) 
 
 }
 function calculPercentage(array,limit){
