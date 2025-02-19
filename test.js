@@ -60,16 +60,13 @@ button.addEventListener('click',(e)=>{
     }, 500);
 })
 function nombreDeSets(score) {
-    // Remplace les virgules par des espaces et supprime les espaces inutiles
     score = score.replace(/[,]+/g, " ").trim();
 
-    // Supprime les annotations entre parenthèses (ex: "(ch)")
     score = score.replace(/\([^)]*\)/g, "").trim();
 
-    // Séparer les sets en tenant compte des annotations comme RET, WO, AB
     let sets = score.split(/\s+/).filter(set => !/^[A-Z]+$/.test(set));
 
-    return sets.length; // Retourne le nombre de sets valides
+    return sets.length; s
 }
 function displayResult(array){
     let section = document.querySelector('.displayResults')
