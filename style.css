@@ -25,15 +25,35 @@ body{
     margin-top: 10px;
 
 }
+.row{
+    display: flex;
+    flex: row;
+    width: 200px;
+    justify-content: space-between;
+
+
+}
+.number{
+    font-weight: 500;
+}
 .refresh{
+    display: none;
     padding: 10px 20px;
     font-size: 25px;
     background-color: whitesmoke;
     cursor: pointer;
+    user-select: none;
     border-radius: 50px;
     border: #3f3f3f 2px solid;
     font-weight: 500;
     transition: all 0.5s ease-in-out;
+}
+.label__set{
+    user-select: none;
+}
+.container{
+    display: flex;
+    flex-direction: column;
 }
 .pastille{
     display: flex;
@@ -77,6 +97,7 @@ gap: 5px;
 }
 h1{
     font-weight: bold;
+    user-select: none;
 }
 textarea{
     border-radius: 8px;
@@ -103,7 +124,7 @@ button{
     text-wrap: nowrap;
     font-size: 22px;
     transition: all 0.4s ease-in-out;
-
+    user-select: none;
 }
 button:hover,.refresh:hover{
     background-color: #3f3f3f;

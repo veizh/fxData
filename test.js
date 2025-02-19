@@ -19,7 +19,7 @@ function splitFunction(text,limit){
         let x = {}
         t.forEach((e,i)=>{
             if(i===6){
-                let tmp =e.substring(0,nameNotation.value.length+3) 
+                let tmp =e.substring(0,nameNotation.value.length+4) 
                 if(tmp.includes(nameNotation.value)){
                     totalWin+=1
                     x.win=true
@@ -51,9 +51,6 @@ function splitFunction(text,limit){
 }
 button.addEventListener('click',(e)=>{
     e.preventDefault()
-    console.log('====================================');
-    console.log(input.value);
-    console.log('====================================');
     splitFunction(input.value);
     setTimeout(() => {
         displayResult(historicArray)
@@ -73,13 +70,10 @@ function displayResult(array){
     let section = document.querySelector('.displayResults')
     let percent1 = document.querySelector('.percent')
     let percent2 = document.querySelector('.percent2')
-
+    
     array.forEach((e,i)=>{
         let t = document.createElement('div')
         t.classList.add('pastille')
-        console.log('====================================');
-        console.log(e);
-        console.log('====================================');
         t.innerHTML=e.set
         if(e.win){
             t.classList.add('green')
@@ -89,10 +83,29 @@ function displayResult(array){
         }
         section.appendChild(t)
     })
+    document.querySelectorAll('.refresh').forEach(e=>{
+        e.style.display="flex"
+    })
+    let y = displayAverageSet(getAverageSet(array))
+    document.querySelector('.result').appendChild(y)
     percent1.innerHTML = calculPercentage(historicArray,5) 
     percent2.innerHTML = calculPercentage(historicArray,10) 
-
+    document.querySelector('.form').remove()
 }
+document.querySelector('.copy').addEventListener("click", () => {
+    const body = document.body;
+            const range = document.createRange();
+            range.selectNode(body);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            try {
+                document.execCommand("copy");
+            } catch (err) {
+                console.error("Erreur lors de la copie :", err);
+            }
+            window.getSelection().removeAllRanges();
+  });
 function calculPercentage(array,limit){
     let l =0
     let w =0
@@ -110,4 +123,74 @@ function calculPercentage(array,limit){
     console.log(w);
     
     return (w/(w+l))
+}
+function getAverageSet(entry){
+    let output = {
+        twoWin:{
+            label:"Two set wins:",
+            number:0
+        },
+        twoLose:{
+            label:"Two set lose:",
+            number:0
+        },
+        threeWin:{
+            label:"Three set win:",
+            number:0
+        },
+        threeLose:{
+            label:"Three set lose:",
+            number:0
+        },
+        fourWin:{
+            label:"Four set win:",
+            number:0
+        },
+        fourLose:{
+            label:"Four set lose:",
+            number:0
+        },
+        fiveWin:{
+            label:"Five set win:",
+            number:0
+        },
+        fiveLose:{
+            label:"Five set lose:   ",
+            number:0
+        },
+
+    }
+    entry.forEach(e=>{
+        if(e.win && e.set===2) output.twoWin.number+=1
+        if(e.win===false && e.set===2) output.twoLose.number+=1
+        if(e.win && e.set===3) output.threeWin.number+=1
+        if(e.win===false && e.set===3) output.threeLose.number+=1
+        if(e.win && e.set===4) output.fourWin.number+=1
+        if(e.win===false && e.set===4) output.fourLose.number+=1
+        if(e.win && e.set===5) output.fiveWin.number+=1
+        if(e.win===false && e.set===5) output.fiveLose.number+=1
+    })
+    console.log('====================================');
+    console.log(output);
+    console.log('====================================');
+    return output
+    
+}
+function displayAverageSet (object){
+    let container = document.createElement('div')
+    Object.values(object).forEach(e=>{
+        let y = document.createElement('div')
+        y.classList.add('row')
+        let number = document.createElement('div')
+        let label = document.createElement('div')
+        number.classList.add('number')
+        label.classList.add('label__set')
+        number.innerHTML = e.number
+        label.innerHTML = e.label
+        container.classList.add('container')
+        y.appendChild(label)
+        y.appendChild(number)
+        container.appendChild(y)
+    })
+    return container
 }
