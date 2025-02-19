@@ -66,7 +66,8 @@ function nombreDeSets(score) {
 
     let sets = score.split(/\s+/).filter(set => !/^[A-Z]+$/.test(set));
 
-    return sets.length; s
+    if(sets.length===1) return sets[0]
+    return sets.length; 
 }
 function displayResult(array){
     let section = document.querySelector('.displayResults')
