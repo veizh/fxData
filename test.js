@@ -1,3 +1,4 @@
+// A tout les devs qui verront ca, désolé d'avance pour le code ignoble ci dessous =Q
 
 let button = document.querySelector('.button-action')
 let input = document.querySelector('.arraytext')
