@@ -7,9 +7,6 @@ let totalMatch = 0
 let totalWin = 0
 let historicArray = []
 let limit = 20
-document.querySelector('.refresh').addEventListener('click',()=>{
-    location.reload();
-})
 function splitFunction(text,limit){
     let tmp = text.split(/\r?\n|\r|\n/g)
     console.log("split by line " , tmp);
@@ -84,9 +81,13 @@ function displayResult(array){
         }
         section.appendChild(t)
     })
-    document.querySelectorAll('.refresh').forEach(e=>{
+    document.querySelectorAll('.btn').forEach(e=>{
         e.style.display="flex"
     })
+    
+document.querySelector('.refresh').addEventListener('click',()=>{
+    location.reload();
+})
     let y = displayAverageSet(getAverageSet(array))
     document.querySelector('.result').appendChild(y)
     percent1.innerHTML = calculPercentage(historicArray,5) 

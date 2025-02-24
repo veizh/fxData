@@ -36,7 +36,7 @@ body{
 .number{
     font-weight: 500;
 }
-.refresh{
+.btn{
     display: none;
     padding: 10px 20px;
     font-size: 25px;
@@ -127,7 +127,7 @@ button{
     transition: all 0.4s ease-in-out;
     user-select: none;
 }
-button:hover,.refresh:hover{
+button:hover,.btn:hover{
     background-color: #3f3f3f;
     color: whitesmoke;
     border: whitesmoke 2px solid;
