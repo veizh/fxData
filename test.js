@@ -81,8 +81,10 @@ function displayResult(array){
         }
         section.appendChild(t)
     })
-    document.querySelector('.row').style.display="flex"
-    
+    document.querySelectorAll('.btn').forEach(e=>{
+        e.style.display="flex"
+    })
+    document.querySelector('.result').style.display="flex"
     
 document.querySelector('.refresh').addEventListener('click',()=>{
     location.reload();
