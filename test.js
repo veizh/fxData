@@ -81,9 +81,8 @@ function displayResult(array){
         }
         section.appendChild(t)
     })
-    document.querySelectorAll('.btn').forEach(e=>{
-        e.style.display="flex"
-    })
+    document.querySelector('.row').style.display="flex"
+    
     
 document.querySelector('.refresh').addEventListener('click',()=>{
     location.reload();
