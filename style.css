@@ -7,6 +7,14 @@
     margin: 0;
     box-sizing: border-box;
 }
+.head{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    position: fixed;
+    top: 0;
+    
+}
 body{
     width: 100vw;
     height: 100vh;

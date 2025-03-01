@@ -12,7 +12,6 @@ function splitFunction(text,limit){
     console.log("split by line " , tmp);
     
     tmp.forEach((element,i) => {
-        if(i>19) return
         const t = element.split('\t')
         let x = {}
         t.forEach((e,i)=>{
@@ -89,9 +88,7 @@ document.querySelector('.refresh').addEventListener('click',()=>{
     location.reload();
 })
     let y = displayAverageSet(getAverageSet(array))
-    document.querySelector('.result').appendChild(y)
-    percent1.innerHTML = calculPercentage(historicArray,5) 
-    percent2.innerHTML = calculPercentage(historicArray,10) 
+    document.querySelector('.result').appendChild(calculPercentage(historicArray))
     document.querySelector('.form').remove()
 }
 document.querySelector('.copy').addEventListener("click", () => {
@@ -111,20 +108,21 @@ document.querySelector('.copy').addEventListener("click", () => {
 function calculPercentage(array,limit){
     let l =0
     let w =0
+    let container = document.createElement('div')
     array.forEach((e,i)=>{
-        if(i>limit-1) return
+        let x= document.createElement('div')
         if(e.win===false){
-            l+=1
+            x.innerHTML=0
+            container.appendChild(x)
         }
         if(e.win===true){
-            w+=1
+            x.innerHTML=1
+            container.appendChild(x)
+
         }
 
     })
-    console.log(l);
-    console.log(w);
-    
-    return (w/(w+l))
+    return container
 }
 function getAverageSet(entry){
     let output = {
