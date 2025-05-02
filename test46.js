@@ -60,9 +60,9 @@ function bpSaveList (){
         e.map((x,i)=>{
           
             if(i===15)
-              console.log(extractParenthesisDifference(x));
+              console.log(extractDifference(x));
               
-            end.push(extractParenthesisDifference(x))
+            end.push(extractDifference(x))
             
         })
         
