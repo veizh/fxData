@@ -97,6 +97,7 @@ function getNbGame(){
   return tableau
 }
 
+
 function breakPercentage(){
     const numberGames= getNbGame()
     const bpslist= bpSaveList()
@@ -121,7 +122,7 @@ function holdPercentage(){
     
     let table = []
     bpConvList().map((bpcMatch,i)=>{
-        table.push((Number(numberGames[i].playerA)-Number(bpMatch))/((Number(numberGames[i].playerA)-Number(bpMatch))+bpslist[i]))
+        table.push((Number(numberGames[i].playerA)-Number(bpcMatch))/((Number(numberGames[i].playerA)-Number(bpMatch))+bpslist[i]))
     })
     const columnText = table.join('\n');
     navigator.clipboard.writeText(columnText);
