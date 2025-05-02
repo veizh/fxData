@@ -5,15 +5,15 @@ function parseTabulatedTextToTable(rawText) {
       .map(line => line.split('\t'));  // Séparer chaque ligne en colonnes
   }
   
-  function extractParenthesisDifference(text) {
-    const match = text.match(/\((\d+)\/(\d+)\)/);
+  function extractDifference(text) {
+    const match = text.match(/^(\d+)\s*\/\s*(\d+)$/);
     
     if (match) {
-        const num = parseInt(match[1], 10);
-        const denom = parseInt(match[2], 10);
+      const num = parseInt(match[1], 10);
+      const denom = parseInt(match[2], 10);
       return denom - num;
     }
-    return null; // ou 0 ou throw une erreur selon tes besoins
+    return null; // ou 0 selon ton besoin
   }
   function Getsumm(tableau){
     let somme = 0
@@ -23,11 +23,8 @@ function parseTabulatedTextToTable(rawText) {
     return somme
   }
   function extractNumerator(text) {
-    const match = text.match(/\((\d+)\/\d+\)/);
-    if (match) {
-      return parseInt(match[1], 10);
-    }
-    return null; // ou 0 ou autre valeur par défaut selon ton besoin
+    const match = text.match(/^(\d+)\s*\/\s*\d+$/);
+    return match ? parseInt(match[1], 10) : null;
   }
   function extractGameCounts(input) {
     // Supprime le contenu entre parenthèses
@@ -61,7 +58,10 @@ function bpSaveList (){
     
     tmp.map((e,index)=>{
         e.map((x,i)=>{
+          
             if(i===15)
+              console.log(extractParenthesisDifference(x));
+              
             end.push(extractParenthesisDifference(x))
             
         })
@@ -128,6 +128,7 @@ document.querySelector('.button-actionBPC').addEventListener("click",()=>{
 function holdPercentage(){
     const numberGames= getNbGame()
     const bpslist= bpSaveList()
+    
     let table = []
     bpConvList().map((bpcMatch,i)=>{
         table.push((Number(bpcMatch)/(Number(numberGames[i].playerB)-Number(bpslist[i])+Number(bpcMatch))))
@@ -139,7 +140,6 @@ function holdPercentage(){
     return columnText
 }
 document.querySelector('.button-actionBPS').addEventListener("click",()=>{
-    console.log(holdPercentage());
     
     holdPercentage()
 })
