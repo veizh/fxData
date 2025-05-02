@@ -97,16 +97,6 @@ function getNbGame(){
   return tableau
 }
 
-function holdPercentage(){
-    const numberGames= getNbGame()
-    const bpslist= bpSaveList()
-    bpConvList().map((bpMatch,i)=>{
-        console.log("holdPercentage",(Number(numberGames[i].playerA)-Number(bpMatch))/((Number(numberGames[i].playerA)-Number(bpMatch))+bpslist[i]));
-        
-        
-    })
-    
-}
 function breakPercentage(){
     const numberGames= getNbGame()
     const bpslist= bpSaveList()
@@ -130,7 +120,7 @@ function holdPercentage(){
     const bpslist= bpSaveList()
     let table = []
     bpConvList().map((bpcMatch,i)=>{
-        table.push((Number(bpcMatch)/(Number(numberGames[i].playerB)-Number(bpslist[i])+Number(bpcMatch))))
+        table.push((Number(numberGames[i].playerA)-Number(bpMatch))/((Number(numberGames[i].playerA)-Number(bpMatch))+bpslist[i]))
     })
     const columnText = table.join('\n');
     navigator.clipboard.writeText(columnText);
