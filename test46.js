@@ -122,7 +122,7 @@ function holdPercentage(){
     
     let table = []
     bpConvList().map((bpcMatch,i)=>{
-        table.push((Number(numberGames[i].playerA)-Number(bpcMatch))/((Number(numberGames[i].playerA)-Number(bpMatch))+bpslist[i]))
+        table.push((Number(numberGames[i].playerA)-Number(bpcMatch))/((Number(numberGames[i].playerA)-Number(bpcMatch))+bpslist[i]))
     })
     const columnText = table.join('\n');
     navigator.clipboard.writeText(columnText);
