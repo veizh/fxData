@@ -54,7 +54,6 @@ function parseTabulatedTextToTable(rawText) {
     return { playerA, playerB };
   }
 function bpSaveList (){
-    console.log(document.querySelector('.arraytextbps').value);
     
     let tmp = parseTabulatedTextToTable(document.querySelector('.arraytextbps').value)
     let end = []
@@ -118,9 +117,15 @@ document.querySelector('.button-actionBPC').addEventListener("click",()=>{
 function holdPercentage(){
     const numberGames= getNbGame()
     const bpslist= bpSaveList()
+    console.log('====================================');
+    console.log(bpslist);
+    console.log('====================================');
+    console.log('====================================');
+    console.log(bpConvList());
+    console.log('====================================');
     let table = []
     bpConvList().map((bpcMatch,i)=>{
-        table.push((Number(numberGames[i].playerA)-Number(bpMatch))/((Number(numberGames[i].playerA)-Number(bpMatch))+bpslist[i]))
+        table.push((Number(numberGames[i].playerA)-Number(bpcMatch))/((Number(numberGames[i].playerA)-Number(bpcMatch))+bpslist[i]))
     })
     const columnText = table.join('\n');
     navigator.clipboard.writeText(columnText);

@@ -11,6 +11,10 @@ function parseTabulatedTextToTable(rawText) {
     if (match) {
       const num = parseInt(match[1], 10);
       const denom = parseInt(match[2], 10);
+      console.log('====================================');
+      console.log("denom",denom);
+      console.log("num",num);
+      console.log('====================================');
       return denom - num;
     }
     return null; // ou 0 selon ton besoin
@@ -60,7 +64,6 @@ function bpSaveList (){
         e.map((x,i)=>{
           
             if(i===15)
-              console.log(extractDifference(x));
               
             end.push(extractDifference(x))
             
